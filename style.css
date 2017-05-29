@@ -1,0 +1,67 @@
+body {
+  background: #000;
+  color: #fff;
+  font-family: 'Joystix';
+  margin: 1em;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  text-align: left;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+h2 {
+  margin: 0 0 1em 0;
+  font-size: 1.5em;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+tr.current {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+td.time {
+  text-align: right;
+}
+
+td.over {
+  color: #f77;
+}
+
+td.under {
+  color: #7f7;
+}
+
+p#current {
+  font-size: 2em;
+  text-align: right;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+  position: fixed;
+  z-index: -1;
+  bottom: 0;
+  left: 0;
+  opacity: 0.4;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+a:hover {
+  color: #88f;
+}
