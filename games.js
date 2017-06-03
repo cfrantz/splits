@@ -66,4 +66,21 @@ var games = {
       'The Past',
     ],
   },
+  'wacky': {
+    'title': 'Wacky Races',
+    'category': '',
+    'offset': 0,
+    'splits': [
+      'Hip Hop 1',
+      'Hip Hop 2',
+      'Hip Hop 3',
+      'Splish Splash 1',
+      'Splish Splash 2',
+      'Splish Splash 3',
+      'Go Go America 1',
+      'Go Go America 2',
+      'Go Go America 3',
+      'Go Go America 4',
+    ],
+  },
 };
