@@ -83,4 +83,17 @@ var games = {
       'Boulder-Mobile',
     ],
   },
+  'panic': {
+    'title': 'Panic Restaurant',
+    'category': '',
+    'offset': 0,
+    'splits': [
+      'Appetizer',
+      'Soup',
+      'Salad',
+      'Fish',
+      'Meat',
+      'Dessert',
+    ],
+  },
 };
