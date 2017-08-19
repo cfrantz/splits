@@ -96,4 +96,13 @@ var games = {
       'Dessert',
     ],
   },
+  'digger': {
+    'title': 'Lil Digger',
+    'category': '',
+    'offset': 0,
+    'splits': [
+      'Level 1',
+      'Fin',
+    ],
+  },
 };
