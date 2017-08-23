@@ -105,4 +105,14 @@ var games = {
       'Fin',
     ],
   },
+  'lotw': {
+    'title': 'Legacy of the Wizard',
+    'category': 'blind%',
+    'offset': 0,
+    'splits': [
+      'Find a new room',
+      'Fall asleep in chair',
+      'Go to bed',
+    ],
+  },
 };
