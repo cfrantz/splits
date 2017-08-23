@@ -86,7 +86,7 @@ var games = {
   'panic': {
     'title': 'Panic Restaurant',
     'category': '',
-    'offset': 0,
+    'offset': -1100,
     'splits': [
       'Appetizer',
       'Soup',
