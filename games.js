@@ -117,7 +117,7 @@ var games = {
   },
   'ypm': {
     'title': 'Yume Penguin Monogatari',
-    'category': 'any%',
+    'category': '',
     'offset': -2500,
     'splits': [
       'Swipe Left',
