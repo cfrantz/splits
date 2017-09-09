@@ -152,6 +152,12 @@ $(function() {
     reset();
   };
 
+  var titleSort = function(a, b) {
+    if (games[a].title < games[b].title) return -1;
+    if (games[a].title > games[b].title) return 1;
+    return 0;
+  };
+
   var listGames = function() {
     $('#game').text('Select Run');
     $('#category').text('');
@@ -159,10 +165,11 @@ $(function() {
     $('#current').text('');
 
     $('#splits').empty();
-    for (var key in games) {
-      var text = games[key].title;
-      if (games[key].category) text += ' - ' + games[key].category;
-      $('#splits').append('<tr><td><a href="#' + key + '">' + text + '</td></tr>');
+    var keys = Object.keys(games).sort(titleSort);
+    for (var i = 0; i < keys.length; ++i) {
+      var text = games[keys[i]].title;
+      if (games[keys[i]].category) text += ' - ' + games[keys[i]].category;
+      $('#splits').append('<tr><td><a href="#' + keys[i] + '">' + text + '</td></tr>');
     }
   };
 
