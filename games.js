@@ -115,4 +115,17 @@ var games = {
       'Go to bed',
     ],
   },
+  'ypm': {
+    'title': 'Yume Penguin Monogatari',
+    'category': 'any%',
+    'offset': -2500,
+    'splits': [
+      'Swipe Left',
+      'Pig Blimp',
+      'Frosting',
+      'Bird Thing',
+      'Pirate Penguin',
+      'Swipe Right',
+    ],
+  },
 };
