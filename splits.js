@@ -97,7 +97,13 @@ $(function() {
 
     var cs = Math.floor(time / 10) % 100;
     var s = Math.floor(time / 1000) % 60;
-    var m = Math.floor(time / 60000);
+    var m = Math.floor(time / 60000) % 60;
+    var h = Math.floor(time / 3600000);
+
+    if (time > 3600000) {
+      ts += h + ':';
+      if (m < 10) ts += '0';
+    }
 
     if (time > 60000) {
       ts += m + ':';
