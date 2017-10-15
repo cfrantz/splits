@@ -1,7 +1,9 @@
 $(function() {
   var timer = {};
   var game = {};
+  var nicname = {};
   var bests = [];
+//  var autosplit;
   // var bests = [ 609699, 715032, 911897, 1236777, 1636572, 2166450, 2627996, 2762127, 3036691, 3678418, 4209097, 4235179, 4454795, 0, 5200000 ];
 
   var running = function() {
@@ -29,7 +31,10 @@ $(function() {
     updateTimer();
   };
 
-  var nextSplit = function() {
+  var nextSplit = function(index) {
+    if (index != undefined) {
+        timer.index = index;
+    }
     timer.times[timer.index] = performance.now() - timer.start;
     timer.index += 1;
 
@@ -45,6 +50,25 @@ $(function() {
       timer.index -= 1;
     }
   };
+
+  var checkAutoSplit = function() {
+    autosplit.checkUpdate(function(command) {
+      if (command['command'] == 'start') {
+          if (running()) { stop(); reset(); }
+          start();
+      } else if (command['command'] == 'reset') {
+          stop();
+          reset();
+      } else if (command['command'] == 'split') {
+          n = nicname[command['data']];
+          if (n != undefined) {
+              nextSplit(n);
+          }
+      } else {
+          console.log('Unknown autosplit command: ', command);
+      }
+    });
+  }
 
   var updateTimer = function() {
     var trs = $('#splits tr');
@@ -143,8 +167,13 @@ $(function() {
     $('#category').text(games[key].category);
 
     $('#splits').empty();
+    nicname = {};
     for (var i = 0; i < game.splits.length; ++i) {
-      $('#splits').append('<tr><td>' + game.splits[i] + '</td><td class="time"></td><td class="time"></td></tr>');
+      var split = game.splits[i].split('|');
+      $('#splits').append('<tr><td>' + split[0] + '</td><td class="time"></td><td class="time"></td></tr>');
+      if (split.length > 1) {
+          nicname[split[1]] = i;
+      }
     }
 
     var data = localStorage.getItem(key);
@@ -205,5 +234,12 @@ $(function() {
   };
 
   $(window).on('hashchange', load);
-  load();
+  $(document).ready(function() {
+    load();
+    autosplit = new AutoSplit();
+    $('#autosplitfile').on('change', function() {
+        autosplit.setFile('autosplitfile');
+    });
+    timer.auto_id = setInterval(checkAutoSplit, 20);
+  });
 });
